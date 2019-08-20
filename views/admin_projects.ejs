@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../style.css">
+    <title>Document</title>
+</head>
+<body>
+<h1 class="h1">ICI, TU SUPPRIMES ET RIEN D'AUTRE...BANDE DE BATARDS</h1>
+<div class="container-cards">
+        <% for(var i=0; i < projects.length; i++) { %>
+        <div class="card">
+            <a href="/admin/edit/<%= projects[i]._id %>">Edit</a>
+
+        <form action='/admin/delete' method="POST">
+            <input type="hidden" name='id' value="<%= projects[i]._id %>" >
+            <input type='submit' >
+        </form>
+          <div class="container-img">
+            <img
+              class="image"
+              src="../images/<%= projects[i].image %>"
+              alt=""
+            />
+            <div class="overlay">
+              <h3 class="title-overlay"><%= projects[i].titre %></h3>
+              
+            </div>
+          
+          </div>
+          <h2 class="title-card"><%= projects[i].titre %></h2>
+          <p class="text-card"><%= projects[i].description %></p>
+        </div>
+        <% } %>
+      </div>
+</body>
+</html>
